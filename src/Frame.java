@@ -3,6 +3,8 @@ import javax.swing.*;
 public class Frame extends JFrame{
     private JFrame f;
     public String domanda ,r1 ,r2 ,r3 ,r4;
+    private JLabel l = new JLabel(domanda);
+    private JButton b1, b2, b3,b4;
     public Frame(){
         Container c = this.getContentPane();
         JMenuBar b = new JMenuBar();
@@ -13,15 +15,18 @@ public class Frame extends JFrame{
         JPanel p = new JPanel();
         c.add(p,BorderLayout.NORTH);
         p.setLayout(new FlowLayout());
-        JLabel l = new JLabel(domanda);
         p.add(l);
         JPanel p1 = new JPanel();
         p1.setLayout(new FlowLayout());
         c.add(p1,BorderLayout.SOUTH);
-        p1.add(new JButton(r1));
-        p1.add(new JButton(r2));
-        p1.add(new JButton(r3));
-        p1.add(new JButton(r4));
+        b1 = new JButton(r1);
+        b2 = new JButton(r2);
+        b3 = new JButton(r3);
+        b4 = new JButton(r4);
+        p1.add(b1);
+        p1.add(b2);
+        p1.add(b3);
+        p1.add(b4);
         setVisible(true);
         setSize(600,600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,18 +40,23 @@ public class Frame extends JFrame{
     }
     public void setDomanda(String domanda){
         this.domanda = domanda;
+        l.setText(domanda);
     }
     public void setR1(String r1){
         this.r1 = r1;
+        b1.setText(r1);
     }
     public void setR2(String r2){
-        this.r2 = r2;        
+        this.r2 = r2;
+        b2.setText(r2);        
     }
     public void setR3(String r3){
         this.r3 = r3;
+        b3.setText(r3);
     }
     public void setR4(String r4){
         this.r4 = r4;
+        b4.setText(r4);
     }
     public String getDomanda(){
         return this.domanda;

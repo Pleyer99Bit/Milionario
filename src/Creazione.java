@@ -1,7 +1,7 @@
 import java.io.Serializable;
 import java.util.*;
 public class Creazione extends Quesito implements Serializable{
-    private ArrayList quesiti = new ArrayList<Quesito>();
+    private ArrayList<Quesito> quesiti = new ArrayList<Quesito>();
     public Creazione(){
         super();
     }
@@ -19,9 +19,10 @@ public class Creazione extends Quesito implements Serializable{
         Quesito q = new Quesito(d,r,rg,diff1);
         quesiti.add(q);
     }
-    public Object Random(){
+    public Quesito Random(){
         double rand = Math.random();
-        int i = (int)rand * this.quesiti.size();
+        int i = (int)(rand * this.quesiti.size());
+        System.out.println(i);
         return this.quesiti.get(i);
     }
 

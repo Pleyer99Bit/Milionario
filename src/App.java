@@ -13,7 +13,7 @@ public class App {
         r[2] ="TestRisposta";
         c.Crea("TestDomanda2", r1, "TestRispGiust", 1);
         Quesito q = new Quesito();
-        q = (Quesito)c.Random();
+        q = c.Random();
         f.setDomanda(q.getDomanda());
         String[] risposte = new String[3];
         risposte = q.getRisposte();
@@ -21,7 +21,9 @@ public class App {
         f.setR2(risposte[1]);
         f.setR3(risposte[2]);
         f.setR4(q.getRispostaGiusta());
-        System.out.println(q);
-        System.out.println(q.getDomanda());
+        //System.out.println(q);
+       // System.out.println(q.getDomanda());
+        //System.out.println(c.Random());
+        
     }
 }
