@@ -19,11 +19,19 @@ public class Creazione extends Quesito implements Serializable{
         Quesito q = new Quesito(d,r,rg,diff1);
         quesiti.add(q);
     }
-    public Quesito Random(){
+    public void Random(){
         double rand = Math.random();
+        Frame f = new Frame();
         int i = (int)(rand * this.quesiti.size());
-        System.out.println(i);
-        return this.quesiti.get(i);
+        Quesito q = new Quesito();
+        q = this.quesiti.get(i);
+        f.setDomanda(q.getDomanda());
+        String[] risposte = new String[3];
+        risposte = q.getRisposte();
+        f.setR1(risposte[0]);
+        f.setR2(risposte[1]);
+        f.setR3(risposte[2]);
+        f.setR4(q.getRispostaGiusta());
     }
 
 }

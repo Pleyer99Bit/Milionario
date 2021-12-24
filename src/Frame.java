@@ -1,10 +1,12 @@
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 public class Frame extends JFrame{
     private JFrame f;
     public String domanda ,r1 ,r2 ,r3 ,r4;
     private JLabel l = new JLabel(domanda);
     private JButton b1, b2, b3,b4;
+    private int k = 0;
     public Frame(){
         Container c = this.getContentPane();
         JMenuBar b = new JMenuBar();
@@ -27,6 +29,70 @@ public class Frame extends JFrame{
         p1.add(b2);
         p1.add(b3);
         p1.add(b4);
+        //ActionListener
+        class AscoltatoreR1 implements ActionListener {
+            public void actionPerformed(ActionEvent e){
+                Creazione c = new Creazione();
+                if(getR1() == c.getRispostaGiusta())
+                    System.out.println("Risposta Giusta");
+                else
+                    System.out.println("Risposta Sbagliata");
+                    k++;
+                    if(kappa() == true){
+                        System.out.println("Tentativi Finiti!");
+                        k=0;
+                    }
+            } 
+        }
+        class AscoltatoreR2 implements ActionListener {
+            public void actionPerformed(ActionEvent e){
+                Creazione c = new Creazione();
+                if(getR1() == c.getRispostaGiusta())
+                    System.out.println("Risposta Giusta");
+                else
+                    System.out.println("Risposta Sbagliata");
+                    k++;
+                    if(kappa() == true){
+                        System.out.println("Tentativi Finiti!");
+                        k=0;
+                    }
+            } 
+        }
+        class AscoltatoreR3 implements ActionListener {
+            public void actionPerformed(ActionEvent e){
+                Creazione c = new Creazione();
+                if(getR1() == c.getRispostaGiusta())
+                    System.out.println("Risposta Giusta");
+                else
+                    System.out.println("Risposta Sbagliata");
+                    k++;
+                    if(kappa() == true){
+                        System.out.println("Tentativi Finiti!");
+                        k=0;
+                    }
+            } 
+        }
+        class AscoltatoreR4 implements ActionListener {
+            public void actionPerformed(ActionEvent e){
+                Creazione c = new Creazione();
+                if(getR1() == c.getRispostaGiusta())
+                    System.out.println("Risposta Giusta");
+                else
+                    System.out.println((String)getR1());
+                    System.out.println("Risposta Sbagliata");
+                    k++;
+                    if(kappa() == true){
+                        System.out.println("Tentativi Finiti!");
+                        k=0;
+                    }
+            } 
+        }
+
+        b1.addActionListener(new AscoltatoreR1() );
+        b2.addActionListener(new AscoltatoreR2() );
+        b3.addActionListener(new AscoltatoreR3() );
+        b4.addActionListener(new AscoltatoreR4() ); 
+
         setVisible(true);
         setSize(600,600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -72,5 +138,11 @@ public class Frame extends JFrame{
     }
     public String getR4(){
         return this.r4;
+    }
+    public Boolean kappa(){
+        if(k == 3){
+            return true;
+        }
+        return false;
     }
 }
