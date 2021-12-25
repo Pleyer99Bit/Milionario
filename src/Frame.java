@@ -75,16 +75,19 @@ public class Frame extends JFrame{
         class AscoltatoreR4 implements ActionListener {
             public void actionPerformed(ActionEvent e){
                 Creazione c = new Creazione();
-                if(getR1() == c.getRispostaGiusta())
+                if(getR1() == c.getRispostaGiusta()){ 
                     System.out.println("Risposta Giusta");
-                else
-                    System.out.println((String)getR1());
+                    k=0;
+                }
+                else{ 
+                    System.out.println((String)getR4());
                     System.out.println("Risposta Sbagliata");
                     k++;
                     if(kappa() == true){
                         System.out.println("Tentativi Finiti!");
                         k=0;
                     }
+                }
             } 
         }
 
