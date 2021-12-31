@@ -3,10 +3,10 @@ import javax.swing.*;
 import java.awt.event.*;
 public class Frame extends JFrame{
     private JFrame f;
-    public String domanda ,r1 ,r2 ,r3 ,r4;
+    public String domanda ,r1 ,r2 ,r3 ,r4, giusto;
     private JLabel l = new JLabel(domanda);
     private JButton b1, b2, b3,b4;
-    private int k = 0;
+    private int k = 1;
     public Frame(){
         Container c = this.getContentPane();
         JMenuBar b = new JMenuBar();
@@ -32,60 +32,55 @@ public class Frame extends JFrame{
         //ActionListener
         class AscoltatoreR1 implements ActionListener {
             public void actionPerformed(ActionEvent e){
-                Creazione c = new Creazione();
-                if(getR1() == c.getRispostaGiusta())
+                if(getR1() == giusto)
                     System.out.println("Risposta Giusta");
                 else
                     System.out.println("Risposta Sbagliata");
                     k++;
                     if(kappa() == true){
                         System.out.println("Tentativi Finiti!");
-                        k=0;
+                        k = 1;
                     }
             } 
         }
         class AscoltatoreR2 implements ActionListener {
             public void actionPerformed(ActionEvent e){
-                Creazione c = new Creazione();
-                if(getR1() == c.getRispostaGiusta())
+                if(getR1() == giusto)
                     System.out.println("Risposta Giusta");
                 else
                     System.out.println("Risposta Sbagliata");
                     k++;
                     if(kappa() == true){
                         System.out.println("Tentativi Finiti!");
-                        k=0;
+                        k = 1;
                     }
             } 
         }
         class AscoltatoreR3 implements ActionListener {
             public void actionPerformed(ActionEvent e){
-                Creazione c = new Creazione();
-                if(getR1() == c.getRispostaGiusta())
+                if(getR1() == giusto)
                     System.out.println("Risposta Giusta");
                 else
                     System.out.println("Risposta Sbagliata");
                     k++;
                     if(kappa() == true){
                         System.out.println("Tentativi Finiti!");
-                        k=0;
+                        k = 1;
                     }
             } 
         }
         class AscoltatoreR4 implements ActionListener {
             public void actionPerformed(ActionEvent e){
-                Creazione c = new Creazione();
-                if(getR1() == c.getRispostaGiusta()){ 
+                if(getR4() == giusto){ 
                     System.out.println("Risposta Giusta");
-                    k=0;
+                    k = 0;
                 }
                 else{ 
-                    System.out.println((String)getR4());
                     System.out.println("Risposta Sbagliata");
                     k++;
                     if(kappa() == true){
                         System.out.println("Tentativi Finiti!");
-                        k=0;
+                        k = 1;
                     }
                 }
             } 
@@ -100,12 +95,13 @@ public class Frame extends JFrame{
         setSize(600,600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    public Frame(String domanda, String r1, String r2, String r3, String r4){
+    public Frame(String domanda, String r1, String r2, String r3, String r4, String giusto){
         this.domanda = domanda;
         this.r1 = r1;
         this.r2 = r2;
         this.r3 = r3;
         this.r4 = r4;
+        this.giusto = giusto;
     }
     public void setDomanda(String domanda){
         this.domanda = domanda;
@@ -142,9 +138,20 @@ public class Frame extends JFrame{
     public String getR4(){
         return this.r4;
     }
+    public void setGiusto(String giusto){
+        this.giusto = giusto;
+    }
+    public String getGiusto(){
+        return this.giusto;
+    }
     public Boolean kappa(){
-        if(k == 3){
+        Creazione c = new Creazione();
+        if(k == 4){
             return true;
+        }
+        else if(k < 1){
+            k = 1;
+            c.Random();            
         }
         return false;
     }

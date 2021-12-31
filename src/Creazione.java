@@ -32,6 +32,7 @@ public class Creazione extends Quesito implements Serializable{
         f.setR2(risposte[1]);
         f.setR3(risposte[2]);
         f.setR4(q.getRispostaGiusta());
+        f.setGiusto(q.getRispostaGiusta());
     }
 
 }
